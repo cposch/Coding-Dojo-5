@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coding_Dojo_5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="Coding Dojo 5" Height="500" Width="800">
 
     <Window.Resources>
         <DataTemplate x:Key="CategoryLayout">
@@ -17,7 +17,11 @@
             </Border>
         </DataTemplate>
     </Window.Resources>
-    
+
+    <Window.DataContext>
+        <Binding Mode="OneWay" Path="Main" Source="{StaticResource Locator}"/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -29,10 +33,10 @@
         </Grid.ColumnDefinitions>
 
         <!--Category list-->
-        <ListBox/>
+        <ListBox ItemsSource="{Binding ItemList}" SelectedItem="{Binding CurrentItem}" ItemTemplate="{Binding CategoryLayout}"/>
 
         <!--Product list-->
-        <ItemsControl Grid.Column="1">
+        <ItemsControl Grid.Column="1" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>
