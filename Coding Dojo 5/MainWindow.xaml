@@ -36,7 +36,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-            <!--Product list-->
+        <!--Product list-->
         <ItemsControl Grid.Column="1" ItemsSource="{Binding CurrentItem.Items}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

@@ -40,10 +40,10 @@ namespace Coding_Dojo_5.ViewModel
             WishList = new ObservableCollection<ItemVm>();
             ItemList = new ObservableCollection<ItemVm>();
 
-            BuyBtnClickedCmd = new RelayCommand<ItemVm>((p) =>
+            BuyBtnClickedCmd = new RelayCommand<ItemVm>((selected) =>
             {
-                WishList.Add(p);
-            }, (p) => { return true; }
+                WishList.Add(selected);
+            }, (selected) => { return true; }
             );
 
             GenerateDemoData();
