@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coding_Dojo_5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="800">
+
+    <Window.Resources>
+        <DataTemplate x:Key="CategoryLayout">
+            <Border Width="200" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="60" Margin="3"/>
+                    <Label VerticalAlignment="Center" Margin="5,0"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Category list-->
+        <ListBox/>
+
+        <!--Product list-->
+        <ItemsControl Grid.Column="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="60" Margin="3"/>
+                            <Label VerticalAlignment="Center" Margin="5,0"/>
+                            <Label FontSize="20" VerticalAlignment="Center" Margin="5,0"/>
+                        </StackPanel>
+                        <Button Content="Buy" Height="35" Width="190" HorizontalAlignment="Center" Margin="3"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <!--Wish list-->
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Height="80"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         
     </Grid>
 </Window>
