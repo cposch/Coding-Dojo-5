@@ -1,9 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 
 namespace Coding_Dojo_5.ViewModel
 {
-    public class ItemVm
+    public class ItemVm : ViewModelBase
     {
         public ObservableCollection<ItemVm> Items { get; set; }
         public string Description { get; set; }
